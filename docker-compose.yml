@@ -1,0 +1,10 @@
+services:
+  back:
+    build: ./backend/tp
+    ports: ["8080:8080"]
+  front:
+    build: ./frontend/front-tp
+    ports: ["3000:3000"]
+    depends_on: [back]
+    environment:
+      NUXT_API_BASE: http://back:8080/api/v1/
