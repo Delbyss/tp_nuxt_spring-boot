@@ -1,0 +1,36 @@
+{
+  "name": "Spring Boot + Nuxt",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "25",
+      "installMaven": true
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "24"
+    }
+  },
+  "forwardPorts": [
+    8080,
+    3000
+  ],
+  "portsAttributes": {
+    "8080": {
+      "label": "Spring Boot API"
+    },
+    "3000": {
+      "label": "Nuxt Dev Server"
+    }
+  },
+  "postCreateCommand": "if [ -f frontend/package.json ]; then cd frontend && npm install; fi",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "nicegyuha.spring-boot-extension-pack-with-kotlin",
+        "vue.volar",
+        "bradlc.vscode-tailwindcss"
+      ]
+    }
+  }
+}
